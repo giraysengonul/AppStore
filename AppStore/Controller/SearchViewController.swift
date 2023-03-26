@@ -32,6 +32,7 @@ extension SearchViewController{
         
     }
 }
+ // MARK: - UICollectionViewDataSource
 extension SearchViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
@@ -41,6 +42,7 @@ extension SearchViewController{
         return cell
     }
 }
+ // MARK: - UICollectionViewDelegateFlowLayout
 extension SearchViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 200)

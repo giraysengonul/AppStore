@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C449F98129D02BBE00E08B2D /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449F98029D02BBE00E08B2D /* SearchCell.swift */; };
+		C449F98429D02E7100E08B2D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449F98329D02E7100E08B2D /* Extension.swift */; };
 		C4C8250C29CEDBBF002808D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8250B29CEDBBF002808D0 /* AppDelegate.swift */; };
 		C4C8250E29CEDBBF002808D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8250D29CEDBBF002808D0 /* SceneDelegate.swift */; };
 		C4C8251529CEDBC2002808D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4C8251429CEDBC2002808D0 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		C449F98029D02BBE00E08B2D /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		C449F98329D02E7100E08B2D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C4C8250829CEDBBF002808D0 /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C8250B29CEDBBF002808D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4C8250D29CEDBBF002808D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C449F98229D02E5E00E08B2D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C449F98329D02E7100E08B2D /* Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C4C824FF29CEDBBF002808D0 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		C4C8250A29CEDBBF002808D0 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				C449F98229D02E5E00E08B2D /* Helpers */,
 				C449F97F29D02BB200E08B2D /* View */,
 				C4C8252229CEDC8F002808D0 /* Controller */,
 				C4C8252129CEDC6D002808D0 /* Files */,
@@ -177,6 +188,7 @@
 				C4C8250C29CEDBBF002808D0 /* AppDelegate.swift in Sources */,
 				C4C8252029CEDBE9002808D0 /* MainTabBarController.swift in Sources */,
 				C4C8250E29CEDBBF002808D0 /* SceneDelegate.swift in Sources */,
+				C449F98429D02E7100E08B2D /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
