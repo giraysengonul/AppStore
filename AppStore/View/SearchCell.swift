@@ -17,6 +17,24 @@ class SearchCell: UICollectionViewCell {
         imageView.heightAnchor.constraint(equalToConstant: 66).isActive = true
         return imageView
     }()
+    private let screenImageView1: UIImageView = {
+       let imageView = UIImageView()
+        imageView.customMode()
+        imageView.backgroundColor = .systemBrown
+        return imageView
+    }()
+    private let screenImageView2: UIImageView = {
+       let imageView = UIImageView()
+        imageView.customMode()
+        imageView.backgroundColor = .systemBrown
+        return imageView
+    }()
+    private let screenImageView3: UIImageView = {
+       let imageView = UIImageView()
+        imageView.customMode()
+        imageView.backgroundColor = .systemBrown
+        return imageView
+    }()
     private let nameLabel: UILabel = {
        let label = UILabel()
         label.text = "Twitter"
@@ -39,11 +57,12 @@ class SearchCell: UICollectionViewCell {
         button.backgroundColor = UIColor(white: 0.90, alpha: 1)
         button.layer.cornerRadius = 12
         button.widthAnchor.constraint(equalToConstant: 53).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 33).isActive = true
         return button
     }()
     private var headerStackView: UIStackView!
     private var labelStackView: UIStackView!
+    private var screenStackView: UIStackView!
+    private var fullStackView: UIStackView!
      // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -60,7 +79,6 @@ extension SearchCell{
         labelStackView = UIStackView(arrangedSubviews: [
             nameLabel,categoryLabel,downloadLabel
         ])
-        labelStackView.spacing = 12
         labelStackView.distribution = .fillEqually
         labelStackView.axis = .vertical
         headerStackView = UIStackView(arrangedSubviews: [
@@ -70,14 +88,28 @@ extension SearchCell{
         headerStackView.axis = .horizontal
         headerStackView.alignment = .center
         headerStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        screenStackView = UIStackView(arrangedSubviews: [
+            screenImageView1,screenImageView2,screenImageView3
+        ])
+        screenStackView.axis = .horizontal
+        screenStackView.distribution = .fillEqually
+        screenStackView.spacing = 8
+        
+        fullStackView = UIStackView(arrangedSubviews: [
+            headerStackView,screenStackView
+        ])
+        fullStackView.axis = .vertical
+        fullStackView.spacing = 8
+        fullStackView.translatesAutoresizingMaskIntoConstraints = false
     }
     private func layout(){
-        addSubview(headerStackView)
+        addSubview(fullStackView)
         NSLayoutConstraint.activate([
-            headerStackView.topAnchor.constraint(equalTo: topAnchor),
-            headerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            headerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            headerStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            fullStackView.topAnchor.constraint(equalTo: topAnchor),
+            fullStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            fullStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            fullStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         
         ])
     }
