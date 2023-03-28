@@ -27,6 +27,10 @@ class SearchViewController: UICollectionViewController {
 extension SearchViewController{
     private func style(){
         collectionView.register(SearchCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        let searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
     }
     private func layout(){
         
@@ -46,5 +50,11 @@ extension SearchViewController{
 extension SearchViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 250)
+    }
+}
+ // MARK: - UISearchBarDelegate
+extension SearchViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
     }
 }
