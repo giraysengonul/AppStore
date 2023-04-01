@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 class SearchCell: UICollectionViewCell {
      // MARK: - Propeties
     var result: Result?{
@@ -118,8 +119,13 @@ extension SearchCell{
     }
     private func configure(){
         guard let result = self.result else { return }
-        self.nameLabel.text = result.trackName
-        self.ratingLabel.text = String(format: "%.2f", result.averageUserRating ?? 0)
-        self.categoryLabel.text = result.primaryGenreName
+        let viewModel = SearchCellViewModel(result: result)
+        self.nameLabel.text = viewModel.nameLabel
+        self.ratingLabel.text = viewModel.ratingLabel
+        self.categoryLabel.text = viewModel.categoryLabel
+        self.appPhoto.kf.setImage(with: viewModel.appImage)
+        self.screenImageView1.kf.setImage(with: viewModel.screenshot1)
+        self.screenImageView2.kf.setImage(with: viewModel.screenshot2)
+        self.screenImageView3.kf.setImage(with: viewModel.screenshot3)
     }
 }
