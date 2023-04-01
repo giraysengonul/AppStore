@@ -24,19 +24,19 @@ class SearchCell: UICollectionViewCell {
     private let screenImageView1: UIImageView = {
        let imageView = UIImageView()
         imageView.customMode()
-        imageView.backgroundColor = .systemBrown
+        imageView.customScreenshot()
         return imageView
     }()
     private let screenImageView2: UIImageView = {
        let imageView = UIImageView()
         imageView.customMode()
-        imageView.backgroundColor = .systemBrown
+        imageView.customScreenshot()
         return imageView
     }()
     private let screenImageView3: UIImageView = {
        let imageView = UIImageView()
         imageView.customMode()
-        imageView.backgroundColor = .systemBrown
+        imageView.customScreenshot()
         return imageView
     }()
     private let nameLabel: UILabel = {

@@ -12,6 +12,13 @@ class SearchViewController: UICollectionViewController {
     var searchResults: [Result] = []{
         didSet{ collectionView.reloadData() }
     }
+    private let centerLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Enter the name of the application you are looking for.."
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
      // MARK: - Lifecycle
      init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -34,14 +41,21 @@ extension SearchViewController{
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
+        centerLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     private func layout(){
-        
+        view.addSubview(centerLabel)
+        NSLayoutConstraint.activate([
+            centerLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            centerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 32),
+            view.trailingAnchor.constraint(equalTo: centerLabel.trailingAnchor,constant: 32)
+        ])
     }
 }
  // MARK: - UICollectionViewDataSource
 extension SearchViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        centerLabel.isHidden = self.searchResults.count != 0
         return searchResults.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
