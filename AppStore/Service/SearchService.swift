@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 struct SearchService {
-    static func fetchData(searchtext term: String){
+    static func fetchData(searchtext term: String,completion: @escaping([Result])->Void){
         let baseUrl = "https://itunes.apple.com/search"
         let parameters = ["entity":"software" ,"term":term]
         AF.request(baseUrl,method: .get,parameters: parameters).responseData { responseData in
@@ -17,7 +17,13 @@ struct SearchService {
                 return
             }
             guard let data = responseData.data else { return }
-            print(String(data: data, encoding: .utf8))
+            do{
+                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
+                completion(searchResult.results)
+                
+            }catch let error{
+                print(error.localizedDescription)
+            }
             
         }
         

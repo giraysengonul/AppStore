@@ -8,6 +8,9 @@
 import UIKit
 class SearchCell: UICollectionViewCell {
      // MARK: - Propeties
+    var result: Result?{
+        didSet{ configure() }
+    }
     private let appPhoto: UIImageView = {
        let imageView = UIImageView()
         imageView.customMode()
@@ -45,7 +48,7 @@ class SearchCell: UICollectionViewCell {
         label.text = "Haberler"
         return label
     }()
-    private let downloadLabel: UILabel = {
+    private let ratingLabel: UILabel = {
        let label = UILabel()
         label.text = "1.9M"
         return label
@@ -77,7 +80,7 @@ class SearchCell: UICollectionViewCell {
 extension SearchCell{
     private func style(){
         labelStackView = UIStackView(arrangedSubviews: [
-            nameLabel,categoryLabel,downloadLabel
+            nameLabel,categoryLabel,ratingLabel
         ])
         labelStackView.distribution = .fillEqually
         labelStackView.axis = .vertical
@@ -112,5 +115,11 @@ extension SearchCell{
             fullStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         
         ])
+    }
+    private func configure(){
+        guard let result = self.result else { return }
+        self.nameLabel.text = result.trackName
+        self.ratingLabel.text = String(format: "%.2f", result.averageUserRating ?? 0)
+        self.categoryLabel.text = result.primaryGenreName
     }
 }
