@@ -6,6 +6,7 @@
 //
 import UIKit
 private let reuseIdentifier = "AppCell"
+private let reuseHeaderIdentifier = "AppsHeaderCell"
 class AppsViewContoller: UICollectionViewController {
      // MARK: - Properties
      // MARK: - Lifecycle
@@ -27,6 +28,7 @@ extension AppsViewContoller{
     private func style(){
         view.backgroundColor = .green
         collectionView.register(AppCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(AppsHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: reuseIdentifier)
     }
     private func layout(){
         
@@ -41,10 +43,17 @@ extension AppsViewContoller{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppCell
         return cell
     }
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseIdentifier, for: indexPath)
+        return header
+    }
 }
 
 extension AppsViewContoller: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: view.frame.width, height: 250)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: view.frame.width, height: 250)
     }
 }

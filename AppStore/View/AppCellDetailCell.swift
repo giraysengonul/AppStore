@@ -60,7 +60,7 @@ extension AppCellDetailCell{
         addSubview(fullStackView)
         NSLayoutConstraint.activate([
             appIcon.widthAnchor.constraint(equalToConstant: 80),
-            appIcon.heightAnchor.constraint(equalToConstant: 80),
+            appIcon.heightAnchor.constraint(equalToConstant: 70),
             getButton.widthAnchor.constraint(equalToConstant: 80),
             getButton.heightAnchor.constraint(equalToConstant: 34),
             fullStackView.topAnchor.constraint(equalTo: topAnchor),
