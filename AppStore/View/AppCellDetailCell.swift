@@ -8,6 +8,9 @@
 import UIKit
 class AppCellDetailCell: UICollectionViewCell {
      // MARK: - Properties
+    var result: FeedResult?{
+        didSet{ configure() }
+    }
     private let appIcon: UIImageView = {
        let imageView = UIImageView()
         imageView.customMode()
@@ -68,5 +71,10 @@ extension AppCellDetailCell{
             fullStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             fullStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
+    }
+    private func configure(){
+        guard let result = self.result else { return }
+        self.nameLabel.text = result.name
+        self.firmLabel.text = result.artistName
     }
 }

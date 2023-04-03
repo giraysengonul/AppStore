@@ -9,6 +9,7 @@ private let reuseIdentifier = "AppCell"
 private let reuseHeaderIdentifier = "AppsHeaderCell"
 class AppsViewContoller: UICollectionViewController {
      // MARK: - Properties
+    var feedArray: [Feed] = []
      // MARK: - Lifecycle
      init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -21,6 +22,7 @@ class AppsViewContoller: UICollectionViewController {
         super.viewDidLoad()
         style()
         layout()
+        fetchDatailData()
     }
 }
  // MARK: - Helpers
@@ -34,13 +36,33 @@ extension AppsViewContoller{
         
     }
 }
+ // MARK: - Service
+extension AppsViewContoller{
+    private func fetchDatailData(){
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        AppsService.fetchData(urlString: URL_TOPFREE ) { feed in
+            dispatchGroup.leave()
+            self.feedArray.append(feed)
+        }
+        dispatchGroup.enter()
+        AppsService.fetchData(urlString: URL_TOPPAID) { feed in
+            dispatchGroup.leave()
+            self.feedArray.append(feed)
+        }
+        dispatchGroup.notify(queue: .main) {
+            self.collectionView.reloadData()
+        }
+    }
+}
  // MARK: - UICollectionViewDataSource
 extension AppsViewContoller{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.feedArray.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppCell
+        cell.feed = self.feedArray[indexPath.row]
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -48,7 +70,7 @@ extension AppsViewContoller{
         return header
     }
 }
-
+ // MARK: - UICollectionViewDelegateFlowLayout
 extension AppsViewContoller: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 250)

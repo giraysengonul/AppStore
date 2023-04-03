@@ -8,6 +8,9 @@
 import UIKit
 class AppCell: UICollectionViewCell {
      // MARK: - Properties
+    var feed:Feed?{
+        didSet{ configure() }
+    }
     private let sectionLabel: UILabel = {
        let label = UILabel()
         label.text = "Section Name"
@@ -45,5 +48,10 @@ extension AppCell{
             appCellDetailViewController.view.trailingAnchor.constraint(equalTo: trailingAnchor),
             appCellDetailViewController.view.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    private func configure(){
+        guard let feed = self.feed else { return }
+        self.sectionLabel.text = feed.title
+        self.appCellDetailViewController.results = feed.results
     }
 }

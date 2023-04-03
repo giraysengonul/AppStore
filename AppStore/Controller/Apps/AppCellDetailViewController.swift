@@ -9,6 +9,9 @@ import UIKit
 private let reuseIdentifier = "AppCellDetailCell"
 class AppCellDetailViewController: UICollectionViewController {
      // MARK: - Properties
+    var results: [FeedResult] = []{
+        didSet{ collectionView.reloadData() }
+    }
      // MARK: - Lifecycle
      init() {
          let flowLayout = UICollectionViewFlowLayout()
@@ -34,10 +37,11 @@ extension AppCellDetailViewController{
  // MARK: - UICollcetionViewDataSource
 extension AppCellDetailViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.results.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppCellDetailCell
+        cell.result = self.results[indexPath.row]
         return cell
     }
 }
