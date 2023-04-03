@@ -14,7 +14,7 @@ class AppCell: UICollectionViewCell {
     private let sectionLabel: UILabel = {
        let label = UILabel()
         label.text = "Section Name"
-        label.font = UIFont.boldSystemFont(ofSize: 22)
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
         return label
     }()
     private let appCellDetailViewController = AppCellDetailViewController()
@@ -32,7 +32,6 @@ class AppCell: UICollectionViewCell {
  // MARK: - Helpers
 extension AppCell{
     private func style(){
-        backgroundColor = .blue
         sectionLabel.translatesAutoresizingMaskIntoConstraints = false
         appCellDetailViewController.view.translatesAutoresizingMaskIntoConstraints = false
     }

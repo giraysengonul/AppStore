@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 class AppCellDetailCell: UICollectionViewCell {
      // MARK: - Properties
     var result: FeedResult?{
@@ -74,7 +75,9 @@ extension AppCellDetailCell{
     }
     private func configure(){
         guard let result = self.result else { return }
-        self.nameLabel.text = result.name
-        self.firmLabel.text = result.artistName
+        let viewModel = AppCellDetailCellViewModel(result: result)
+        self.nameLabel.text = viewModel.name
+        self.firmLabel.text = viewModel.artistName
+        self.appIcon.kf.setImage(with: viewModel.appImageUrl)
     }
 }
