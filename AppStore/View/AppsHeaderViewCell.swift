@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Kingfisher
 class AppsHeaderViewCell: UICollectionViewCell {
      // MARK: - Properties
+    var appHeaderModel: AppHeaderModel?{
+        didSet{ configure() }
+    }
     private let appImage: UIImageView = {
        let imageView = UIImageView()
         imageView.customMode()
@@ -52,5 +56,12 @@ extension AppsHeaderViewCell{
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    private func configure(){
+        guard let result = self.appHeaderModel else { return }
+        let viewModel = AppsHeaderViewModel(result: result)
+        self.titleLabel.text = viewModel.title
+        self.firmLabel.text = viewModel.name
+        self.appImage.kf.setImage(with: viewModel.imageUrl)
     }
 }

@@ -9,6 +9,9 @@ import UIKit
 private let reuseIdentifier = "AppsHeaderViewCell"
 class AppsHeaderViewController: UICollectionViewController {
      // MARK: - Properties
+    var appsHeaderResult: [AppHeaderModel] = []{
+        didSet{ collectionView.reloadData() }
+    }
      // MARK: - Lifecycle
      init() {
          let flowLayout = UICollectionViewFlowLayout()
@@ -31,10 +34,11 @@ extension AppsHeaderViewController{
  // MARK: - UICollectionViewDataSource
 extension AppsHeaderViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.appsHeaderResult.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppsHeaderViewCell
+        cell.appHeaderModel = self.appsHeaderResult[indexPath.row]
         return cell
     }
 }

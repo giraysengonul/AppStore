@@ -10,6 +10,7 @@ private let reuseHeaderIdentifier = "AppsHeaderCell"
 class AppsViewContoller: UICollectionViewController {
      // MARK: - Properties
     var feedArray: [Feed] = []
+    var appsHeaderResult: [AppHeaderModel] = []
      // MARK: - Lifecycle
      init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -50,6 +51,11 @@ extension AppsViewContoller{
             dispatchGroup.leave()
             self.feedArray.append(feed)
         }
+        dispatchGroup.enter()
+        AppsService.fetchHeaderData(urlString: URL_HEADER) { result in
+            dispatchGroup.leave()
+            self.appsHeaderResult = result
+        }
         dispatchGroup.notify(queue: .main) {
             self.collectionView.reloadData()
         }
@@ -66,7 +72,8 @@ extension AppsViewContoller{
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseIdentifier, for: indexPath) as! AppsHeaderView
+        header.appsHeaderResult = self.appsHeaderResult
         return header
     }
 }

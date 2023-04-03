@@ -24,4 +24,20 @@ struct AppsService {
             }
         }
     }
+    static func fetchHeaderData(urlString: String, completion: @escaping([AppHeaderModel])->Void){
+        guard let url = URL(string: urlString) else { return }
+        AF.request(url,method: .get).responseData { responseData in
+            if let error = responseData.error{
+                print(error.localizedDescription)
+                return
+            }
+            guard let data = responseData.data else{ return }
+            do{
+                let response = try JSONDecoder().decode([AppHeaderModel].self, from: data)
+                completion(response)
+            }catch let error{
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
