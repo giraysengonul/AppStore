@@ -9,6 +9,9 @@ import UIKit
 private let reuseIndentifier = "RatingsDetailCell"
 class RatingsCellViewController: UICollectionViewController {
      // MARK: - Properties
+    var resultsEntry: [Entry] = []{
+        didSet{ collectionView.reloadData() }
+    }
      // MARK: - Lifecycle
      init() {
          let layout = UICollectionViewFlowLayout()
@@ -30,11 +33,11 @@ extension RatingsCellViewController{
  // MARK: - UICollectionViewDataSource
 extension RatingsCellViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return self.resultsEntry.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIndentifier, for: indexPath) as! RatingsDetailCell
-        
+        cell.resultsEntry = self.resultsEntry[indexPath.row]
         return cell
     }
 }

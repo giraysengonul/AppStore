@@ -8,6 +8,9 @@
 import UIKit
 class RatingsCell: UICollectionViewCell {
      // MARK: - Properties
+    var resultsEntry: [Entry] = []{
+        didSet{ ratingsCellViewController.resultsEntry = resultsEntry }
+    }
     private let ratingLabel: UILabel = {
        let label = UILabel()
         label.text = "Ratings"

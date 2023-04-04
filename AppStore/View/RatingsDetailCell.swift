@@ -8,6 +8,9 @@
 import UIKit
 class RatingsDetailCell: UICollectionViewCell {
      // MARK: - Properties
+    var resultsEntry: Entry?{
+        didSet{ configure() }
+    }
     private let titleLabel:UILabel = {
        let label = UILabel()
         label.text = "Title Label"
@@ -26,6 +29,7 @@ class RatingsDetailCell: UICollectionViewCell {
     private let bodyLabel:UILabel = {
        let label = UILabel()
         label.text = "Body Label"
+        label.numberOfLines = 0
         return label
     }()
     private var verticalStackView: UIStackView!
@@ -48,18 +52,29 @@ extension RatingsDetailCell{
         verticalStackView = UIStackView(arrangedSubviews: [
         UIStackView(arrangedSubviews: [titleLabel,userLabel]),
         starLabel,
-        bodyLabel
+        bodyLabel,
+        UIView()
         ])
         verticalStackView.axis = .vertical
+        verticalStackView.spacing = 8
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
     }
     private func layout(){
         addSubview(verticalStackView)
+        self.titleLabel.setContentCompressionResistancePriority(.init(0), for: .horizontal)
         NSLayoutConstraint.activate([
             verticalStackView.topAnchor.constraint(equalTo: topAnchor),
             verticalStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             verticalStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
+    }
+    private func configure(){
+        guard let result = self.resultsEntry else { return }
+        let viewModel = RatingsDetailCellViewModel(result: result)
+        self.userLabel.text = viewModel.userText
+        self.titleLabel.text = viewModel.titleText
+        self.bodyLabel.text = viewModel.bodyText
+        self.starLabel.text = viewModel.ratingText
     }
 }

@@ -14,10 +14,14 @@ class AppInfoViewController: UICollectionViewController {
     var results: [Result] = []{
         didSet{ collectionView.reloadData() }
     }
+    var resultsEntry: [Entry] = []{
+        didSet{ collectionView.reloadData() }
+    }
     var appID: String?{
         didSet{
             guard let id = self.appID else { return }
             fetchData(id: id)
+            fetchRatingsData(id: id)
         }
     }
      // MARK: - Lifecycle
@@ -38,6 +42,11 @@ extension AppInfoViewController{
     private func fetchData(id: String){
         SearchService.fetchDataID(id: id) { results in
             self.results = results
+        }
+    }
+    private func fetchRatingsData(id: String){
+        AppsService.fetchRatingsData(id: id) { resultsEntry in
+            self.resultsEntry = resultsEntry
         }
     }
 }
@@ -66,7 +75,7 @@ extension AppInfoViewController{
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseRatingsCellIdentifier, for: indexPath) as! RatingsCell
-          
+            cell.resultsEntry = self.resultsEntry
             return cell
         }
         

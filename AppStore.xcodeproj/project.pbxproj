@@ -39,6 +39,8 @@
 		C4CA8C0129DCC42500837019 /* RatingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA8C0029DCC42500837019 /* RatingsCell.swift */; };
 		C4CA8C0329DCC53D00837019 /* RatingsCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA8C0229DCC53D00837019 /* RatingsCellViewController.swift */; };
 		C4CA8C0529DCC5FD00837019 /* RatingsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA8C0429DCC5FD00837019 /* RatingsDetailCell.swift */; };
+		C4CA8C0B29DCE00000837019 /* RatingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA8C0A29DCE00000837019 /* RatingsModel.swift */; };
+		C4CA8C0D29DCE21E00837019 /* RatingsDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA8C0C29DCE21E00837019 /* RatingsDetailCellViewModel.swift */; };
 		C4D0443829DB924A00B84376 /* AppHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0443729DB924A00B84376 /* AppHeaderModel.swift */; };
 		C4D0443A29DB93A500B84376 /* AppsHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0443929DB93A500B84376 /* AppsHeaderViewModel.swift */; };
 		C4E17A8C29CF2477009A82A0 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E17A8B29CF2477009A82A0 /* TodayViewController.swift */; };
@@ -79,6 +81,8 @@
 		C4CA8C0029DCC42500837019 /* RatingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCell.swift; sourceTree = "<group>"; };
 		C4CA8C0229DCC53D00837019 /* RatingsCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCellViewController.swift; sourceTree = "<group>"; };
 		C4CA8C0429DCC5FD00837019 /* RatingsDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsDetailCell.swift; sourceTree = "<group>"; };
+		C4CA8C0A29DCE00000837019 /* RatingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsModel.swift; sourceTree = "<group>"; };
+		C4CA8C0C29DCE21E00837019 /* RatingsDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsDetailCellViewModel.swift; sourceTree = "<group>"; };
 		C4D0443729DB924A00B84376 /* AppHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderModel.swift; sourceTree = "<group>"; };
 		C4D0443929DB93A500B84376 /* AppsHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderViewModel.swift; sourceTree = "<group>"; };
 		C4E17A8B29CF2477009A82A0 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				C456E67A29D83EFA00EEBA57 /* SearchResult.swift */,
 				C43E157629DB715E004F554E /* AppModel.swift */,
 				C4D0443729DB924A00B84376 /* AppHeaderModel.swift */,
+				C4CA8C0A29DCE00000837019 /* RatingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				C4D0443929DB93A500B84376 /* AppsHeaderViewModel.swift */,
 				C44D69F029DC44D8007991DB /* AppInfoHeaderCellViewModel.swift */,
 				C44D6A0029DC6550007991DB /* ScreenshotDetailCellViewModel.swift */,
+				C4CA8C0C29DCE21E00837019 /* RatingsDetailCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 				C44D69F129DC44D8007991DB /* AppInfoHeaderCellViewModel.swift in Sources */,
 				C43E157929DB73FF004F554E /* Constant.swift in Sources */,
 				C4E17A8E29CF2481009A82A0 /* AppsViewContoller.swift in Sources */,
+				C4CA8C0B29DCE00000837019 /* RatingsModel.swift in Sources */,
 				C44D69ED29DC0DD8007991DB /* AppInfoViewController.swift in Sources */,
 				C4D0443829DB924A00B84376 /* AppHeaderModel.swift in Sources */,
 				C449F98129D02BBE00E08B2D /* SearchCell.swift in Sources */,
@@ -330,6 +337,7 @@
 				C4CA8C0529DCC5FD00837019 /* RatingsDetailCell.swift in Sources */,
 				C48A107029D98B5700A15F22 /* AppCell.swift in Sources */,
 				C4C8250E29CEDBBF002808D0 /* SceneDelegate.swift in Sources */,
+				C4CA8C0D29DCE21E00837019 /* RatingsDetailCellViewModel.swift in Sources */,
 				C4CA8C0329DCC53D00837019 /* RatingsCellViewController.swift in Sources */,
 				C44D69FB29DC5A46007991DB /* ScreenShotCellViewController.swift in Sources */,
 				C449F98429D02E7100E08B2D /* Extension.swift in Sources */,
