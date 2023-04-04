@@ -94,6 +94,7 @@ extension AppsViewContoller: UICollectionViewDelegateFlowLayout{
 extension AppsViewContoller: AppCellProtocol{
     func goAppInfoViewController(id: String) {
         let controller = AppInfoViewController()
+        controller.appID = id
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

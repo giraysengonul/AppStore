@@ -8,6 +8,9 @@
 import UIKit
 class AppInfoHeaderCell: UICollectionViewCell {
      // MARK: - Properties
+    var result: Result?{
+        didSet{ configure() }
+    }
     private let appIconImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.customMode()
@@ -81,5 +84,9 @@ extension AppInfoHeaderCell{
             fullStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             fullStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    private func configure() {
+        guard let result = self.result else { return }
+        print(result.formattedPrice)
     }
 }

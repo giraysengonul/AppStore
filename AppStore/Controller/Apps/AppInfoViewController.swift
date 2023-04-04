@@ -9,6 +9,15 @@ import UIKit
 private let reuseHeaderCellIdentifier = "HeaderCell"
 class AppInfoViewController: UICollectionViewController {
      // MARK: - Properties
+    var results: [Result] = []{
+        didSet{ collectionView.reloadData() }
+    }
+    var appID: String?{
+        didSet{
+            guard let id = self.appID else { return }
+            fetchData(id: id)
+        }
+    }
      // MARK: - Lifecycle
      init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -20,6 +29,14 @@ class AppInfoViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
+    }
+}
+ // MARK: - Service
+extension AppInfoViewController{
+    private func fetchData(id: String){
+        SearchService.fetchDataID(id: id) { results in
+            self.results = results
+        }
     }
 }
  // MARK: - Helpers
@@ -36,6 +53,7 @@ extension AppInfoViewController{
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseHeaderCellIdentifier, for: indexPath) as! AppInfoHeaderCell
+        cell.result = self.results.first
         return cell
     }
 }
