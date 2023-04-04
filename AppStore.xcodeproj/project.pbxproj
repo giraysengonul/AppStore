@@ -16,6 +16,9 @@
 		C44D69ED29DC0DD8007991DB /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D69EC29DC0DD8007991DB /* AppInfoViewController.swift */; };
 		C44D69EF29DC0E8D007991DB /* AppInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D69EE29DC0E8D007991DB /* AppInfoHeaderCell.swift */; };
 		C44D69F129DC44D8007991DB /* AppInfoHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D69F029DC44D8007991DB /* AppInfoHeaderCellViewModel.swift */; };
+		C44D69F929DC5942007991DB /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D69F829DC5941007991DB /* ScreenshotCell.swift */; };
+		C44D69FB29DC5A46007991DB /* ScreenShotCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D69FA29DC5A46007991DB /* ScreenShotCellViewController.swift */; };
+		C44D69FD29DC5B16007991DB /* ScreenshotDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D69FC29DC5B16007991DB /* ScreenshotDetailCell.swift */; };
 		C456E66F29D8129E00EEBA57 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C456E66E29D8129E00EEBA57 /* Alamofire */; };
 		C456E67229D8134300EEBA57 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456E67129D8134300EEBA57 /* SearchService.swift */; };
 		C456E67B29D83EFA00EEBA57 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456E67A29D83EFA00EEBA57 /* SearchResult.swift */; };
@@ -49,6 +52,9 @@
 		C44D69EC29DC0DD8007991DB /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		C44D69EE29DC0E8D007991DB /* AppInfoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoHeaderCell.swift; sourceTree = "<group>"; };
 		C44D69F029DC44D8007991DB /* AppInfoHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoHeaderCellViewModel.swift; sourceTree = "<group>"; };
+		C44D69F829DC5941007991DB /* ScreenshotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
+		C44D69FA29DC5A46007991DB /* ScreenShotCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotCellViewController.swift; sourceTree = "<group>"; };
+		C44D69FC29DC5B16007991DB /* ScreenshotDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotDetailCell.swift; sourceTree = "<group>"; };
 		C456E67129D8134300EEBA57 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		C456E67A29D83EFA00EEBA57 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		C456E68629D854B300EEBA57 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
@@ -94,6 +100,8 @@
 				C4753D7829DA055D001BEFFA /* AppsHeaderView.swift */,
 				C4753D7C29DA06A0001BEFFA /* AppsHeaderViewCell.swift */,
 				C44D69EE29DC0E8D007991DB /* AppInfoHeaderCell.swift */,
+				C44D69F829DC5941007991DB /* ScreenshotCell.swift */,
+				C44D69FC29DC5B16007991DB /* ScreenshotDetailCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,6 +152,7 @@
 				C48A107229D98C4700A15F22 /* AppCellDetailViewController.swift */,
 				C4753D7A29DA063A001BEFFA /* AppsHeaderViewController.swift */,
 				C44D69EC29DC0DD8007991DB /* AppInfoViewController.swift */,
+				C44D69FA29DC5A46007991DB /* ScreenShotCellViewController.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -287,6 +296,7 @@
 				C4E17A8C29CF2477009A82A0 /* TodayViewController.swift in Sources */,
 				C4753D7B29DA063A001BEFFA /* AppsHeaderViewController.swift in Sources */,
 				C43E157B29DB847D004F554E /* AppCellDetailCellViewModel.swift in Sources */,
+				C44D69FD29DC5B16007991DB /* ScreenshotDetailCell.swift in Sources */,
 				C44D69F129DC44D8007991DB /* AppInfoHeaderCellViewModel.swift in Sources */,
 				C43E157929DB73FF004F554E /* Constant.swift in Sources */,
 				C4E17A8E29CF2481009A82A0 /* AppsViewContoller.swift in Sources */,
@@ -299,11 +309,13 @@
 				C43E157729DB715E004F554E /* AppModel.swift in Sources */,
 				C4C8250C29CEDBBF002808D0 /* AppDelegate.swift in Sources */,
 				C4753D7D29DA06A0001BEFFA /* AppsHeaderViewCell.swift in Sources */,
+				C44D69F929DC5942007991DB /* ScreenshotCell.swift in Sources */,
 				C44D69EF29DC0E8D007991DB /* AppInfoHeaderCell.swift in Sources */,
 				C4C8252029CEDBE9002808D0 /* MainTabBarController.swift in Sources */,
 				C456E68729D854B300EEBA57 /* SearchCellViewModel.swift in Sources */,
 				C48A107029D98B5700A15F22 /* AppCell.swift in Sources */,
 				C4C8250E29CEDBBF002808D0 /* SceneDelegate.swift in Sources */,
+				C44D69FB29DC5A46007991DB /* ScreenShotCellViewController.swift in Sources */,
 				C449F98429D02E7100E08B2D /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
