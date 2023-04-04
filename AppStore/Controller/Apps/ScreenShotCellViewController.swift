@@ -9,6 +9,9 @@ import UIKit
 private let reuseIdentifier = "ScreenshotDetailCell"
 class ScreenShotCellViewController: UICollectionViewController {
      // MARK: - Ptoprties
+    var resultsImage: [String] = []{
+        didSet{ collectionView.reloadData() }
+    }
      // MARK: - Lifecycle
      init() {
          let layout = UICollectionViewFlowLayout()
@@ -30,15 +33,16 @@ extension ScreenShotCellViewController{
  // MARK: - UICollectionViewDataSource
 extension ScreenShotCellViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.resultsImage.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ScreenshotDetailCell
+        cell.resultImageString = self.resultsImage[indexPath.row]
         return cell
     }
 }
 extension ScreenShotCellViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width / 1.5, height: view.frame.height )
+        return .init(width: view.frame.width / 1.5, height: view.frame.height - 10)
     }
 }

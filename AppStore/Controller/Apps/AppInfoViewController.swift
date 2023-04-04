@@ -60,6 +60,7 @@ extension AppInfoViewController{
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseScreenshotCellIdentifier, for: indexPath) as! ScreenshotCell
+            cell.resultsImage = self.results.first?.screenshotUrls ?? []
             return cell
         }
         
@@ -75,7 +76,7 @@ extension AppInfoViewController: UICollectionViewDelegateFlowLayout{
             let estimatedCell = cell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
             return .init(width: view.frame.width - 10, height: estimatedCell.height)
         }else{
-            return .init(width: view.frame.width, height: 500)
+            return .init(width: view.frame.width - 10, height: 500)
         }
       
     }

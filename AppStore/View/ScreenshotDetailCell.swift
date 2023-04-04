@@ -8,10 +8,13 @@
 import UIKit
 class ScreenshotDetailCell: UICollectionViewCell {
      // MARK: - Properties
+    var resultImageString: String?{
+        didSet{ configure() }
+    }
     private let screenshotImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.customMode()
-        imageView.backgroundColor = .red
+        imageView.layer.cornerRadius = 12
         return imageView
     }()
      // MARK: - Lifecycle
@@ -38,5 +41,10 @@ extension ScreenshotDetailCell{
             screenshotImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             screenshotImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
+    }
+    private func configure(){
+        guard let result = self.resultImageString else { return }
+        let viewModel = ScreenshotDetailCellViewModel(result: result)
+        screenshotImageView.kf.setImage(with: viewModel.imageUrl)
     }
 }

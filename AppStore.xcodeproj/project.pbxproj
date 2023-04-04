@@ -19,6 +19,7 @@
 		C44D69F929DC5942007991DB /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D69F829DC5941007991DB /* ScreenshotCell.swift */; };
 		C44D69FB29DC5A46007991DB /* ScreenShotCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D69FA29DC5A46007991DB /* ScreenShotCellViewController.swift */; };
 		C44D69FD29DC5B16007991DB /* ScreenshotDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D69FC29DC5B16007991DB /* ScreenshotDetailCell.swift */; };
+		C44D6A0129DC6550007991DB /* ScreenshotDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D6A0029DC6550007991DB /* ScreenshotDetailCellViewModel.swift */; };
 		C456E66F29D8129E00EEBA57 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C456E66E29D8129E00EEBA57 /* Alamofire */; };
 		C456E67229D8134300EEBA57 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456E67129D8134300EEBA57 /* SearchService.swift */; };
 		C456E67B29D83EFA00EEBA57 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456E67A29D83EFA00EEBA57 /* SearchResult.swift */; };
@@ -55,6 +56,7 @@
 		C44D69F829DC5941007991DB /* ScreenshotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
 		C44D69FA29DC5A46007991DB /* ScreenShotCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotCellViewController.swift; sourceTree = "<group>"; };
 		C44D69FC29DC5B16007991DB /* ScreenshotDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotDetailCell.swift; sourceTree = "<group>"; };
+		C44D6A0029DC6550007991DB /* ScreenshotDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotDetailCellViewModel.swift; sourceTree = "<group>"; };
 		C456E67129D8134300EEBA57 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		C456E67A29D83EFA00EEBA57 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		C456E68629D854B300EEBA57 /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				C43E157A29DB847D004F554E /* AppCellDetailCellViewModel.swift */,
 				C4D0443929DB93A500B84376 /* AppsHeaderViewModel.swift */,
 				C44D69F029DC44D8007991DB /* AppInfoHeaderCellViewModel.swift */,
+				C44D6A0029DC6550007991DB /* ScreenshotDetailCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				C48A107529D98DC700A15F22 /* AppCellDetailCell.swift in Sources */,
 				C48A107329D98C4700A15F22 /* AppCellDetailViewController.swift in Sources */,
 				C43E157729DB715E004F554E /* AppModel.swift in Sources */,
+				C44D6A0129DC6550007991DB /* ScreenshotDetailCellViewModel.swift in Sources */,
 				C4C8250C29CEDBBF002808D0 /* AppDelegate.swift in Sources */,
 				C4753D7D29DA06A0001BEFFA /* AppsHeaderViewCell.swift in Sources */,
 				C44D69F929DC5942007991DB /* ScreenshotCell.swift in Sources */,

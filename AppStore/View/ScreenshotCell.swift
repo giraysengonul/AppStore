@@ -8,10 +8,13 @@
 import UIKit
 class ScreenshotCell: UICollectionViewCell {
      // MARK: - Properties
+    var resultsImage: [String] = []{
+        didSet{ screenshotCellViewController.resultsImage = resultsImage }
+    }
     private let previewLabel: UILabel = {
        let label = UILabel()
         label.text = "Preview"
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         return label
     }()
     private let screenshotCellViewController = ScreenShotCellViewController()
