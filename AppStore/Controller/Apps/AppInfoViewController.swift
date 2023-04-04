@@ -8,6 +8,7 @@
 import UIKit
 private let reuseHeaderCellIdentifier = "HeaderCell"
 private let reuseScreenshotCellIdentifier = "ScreenshotCell"
+private let reuseRatingsCellIdentifier = "RatingsCell"
 class AppInfoViewController: UICollectionViewController {
      // MARK: - Properties
     var results: [Result] = []{
@@ -46,21 +47,26 @@ extension AppInfoViewController{
         self.navigationItem.largeTitleDisplayMode = .never
         collectionView.register(AppInfoHeaderCell.self, forCellWithReuseIdentifier: reuseHeaderCellIdentifier)
         collectionView.register(ScreenshotCell.self, forCellWithReuseIdentifier: reuseScreenshotCellIdentifier)
+        collectionView.register(RatingsCell.self, forCellWithReuseIdentifier: reuseRatingsCellIdentifier)
     }
 }
  // MARK: - UICollectionViewDataSource
 extension AppInfoViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseHeaderCellIdentifier, for: indexPath) as! AppInfoHeaderCell
             cell.result = self.results.first
             return cell
-        }else{
+        }else if indexPath.item == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseScreenshotCellIdentifier, for: indexPath) as! ScreenshotCell
             cell.resultsImage = self.results.first?.screenshotUrls ?? []
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseRatingsCellIdentifier, for: indexPath) as! RatingsCell
+          
             return cell
         }
         
@@ -75,8 +81,10 @@ extension AppInfoViewController: UICollectionViewDelegateFlowLayout{
             cell.layoutIfNeeded()
             let estimatedCell = cell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
             return .init(width: view.frame.width - 10, height: estimatedCell.height)
-        }else{
+        }else if indexPath.item == 1{
             return .init(width: view.frame.width - 10, height: 500)
+        }else{
+            return .init(width: view.frame.width - 10, height: 250)
         }
       
     }
