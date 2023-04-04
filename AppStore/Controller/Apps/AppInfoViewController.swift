@@ -60,6 +60,16 @@ extension AppInfoViewController{
  // MARK: - UICollectionViewDelegateFlowLayout
 extension AppInfoViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 250)
+        let cell = AppInfoHeaderCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 250))
+        cell.result = self.results.first
+        cell.layoutIfNeeded()
+        let estimatedCell = cell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
+        return .init(width: view.frame.width - 10, height: estimatedCell.height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 10, bottom: 0, right: 0)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: view.frame.width, height: 10)
     }
 }

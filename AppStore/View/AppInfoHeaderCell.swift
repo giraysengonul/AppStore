@@ -15,11 +15,13 @@ class AppInfoHeaderCell: UICollectionViewCell {
        let imageView = UIImageView()
         imageView.customMode()
         imageView.backgroundColor = .systemPurple
+        imageView.layer.cornerRadius = 12
         return imageView
     }()
     private let nameLabel: UILabel = {
        let label = UILabel()
         label.text = "App Name"
+        label.numberOfLines = 2
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         return label
     }()
@@ -27,7 +29,8 @@ class AppInfoHeaderCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.setTitle("Get", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = .blue
+        button.backgroundColor = .systemBlue
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
         button.layer.cornerRadius = 32 / 2
         return button
     }()
@@ -37,9 +40,9 @@ class AppInfoHeaderCell: UICollectionViewCell {
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         return label
     }()
-    private let descriptionLabel: UILabel = {
+    private let releaseNotesLabel: UILabel = {
        let label = UILabel()
-        label.text = "descriptionLabel"
+        label.text = "releaseNotes"
         label.numberOfLines = 0
         return label
     }()
@@ -64,7 +67,8 @@ extension AppInfoHeaderCell{
         labelButtonStackView = UIStackView(arrangedSubviews: [nameLabel,UIStackView(arrangedSubviews: [getButton,UIView()])])
         labelButtonStackView.axis = .vertical
         headStackView = UIStackView(arrangedSubviews: [appIconImageView,labelButtonStackView])
-        labelStackView = UIStackView(arrangedSubviews: [whatsNewLabel,descriptionLabel])
+        headStackView.spacing = 8
+        labelStackView = UIStackView(arrangedSubviews: [whatsNewLabel,releaseNotesLabel])
         labelStackView.axis = .vertical
         labelStackView.spacing = 8
         fullStackView = UIStackView(arrangedSubviews: [headStackView,labelStackView])
@@ -87,6 +91,10 @@ extension AppInfoHeaderCell{
     }
     private func configure() {
         guard let result = self.result else { return }
-        print(result.formattedPrice)
+        let viewModel = AppInfoHeaderCellViewModel(result: result)
+        self.nameLabel.text = viewModel.name
+        self.releaseNotesLabel.text = viewModel.releaseNotes
+        self.appIconImageView.kf.setImage(with: viewModel.appImageUrl)
+        self.getButton.setTitle(viewModel.formattedPrice, for: .normal)
     }
 }
