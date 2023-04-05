@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4277D7629DD82B6007462AC /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4277D7529DD82B6007462AC /* TodayCell.swift */; };
 		C43E157529DB7079004F554E /* AppsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43E157429DB7079004F554E /* AppsService.swift */; };
 		C43E157729DB715E004F554E /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43E157629DB715E004F554E /* AppModel.swift */; };
 		C43E157929DB73FF004F554E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43E157829DB73FF004F554E /* Constant.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C4277D7529DD82B6007462AC /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		C43E157429DB7079004F554E /* AppsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsService.swift; sourceTree = "<group>"; };
 		C43E157629DB715E004F554E /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		C43E157829DB73FF004F554E /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -103,9 +105,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4277D7329DD8257007462AC /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				C4E17A8B29CF2477009A82A0 /* TodayViewController.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		C4277D7429DD82AB007462AC /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				C4277D7529DD82B6007462AC /* TodayCell.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
 		C449F97F29D02BB200E08B2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4277D7429DD82AB007462AC /* Today */,
 				C449F98029D02BBE00E08B2D /* SearchCell.swift */,
 				C48A106F29D98B5700A15F22 /* AppCell.swift */,
 				C48A107429D98DC700A15F22 /* AppCellDetailCell.swift */,
@@ -220,9 +239,9 @@
 		C4C8252229CEDC8F002808D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4277D7329DD8257007462AC /* Today */,
 				C48A107129D98C2E00A15F22 /* Apps */,
 				C4C8251F29CEDBE9002808D0 /* MainTabBarController.swift */,
-				C4E17A8B29CF2477009A82A0 /* TodayViewController.swift */,
 				C4E17A8F29CF2490009A82A0 /* SearchViewController.swift */,
 			);
 			path = Controller;
@@ -317,6 +336,7 @@
 				C44D69FD29DC5B16007991DB /* ScreenshotDetailCell.swift in Sources */,
 				C44D69F129DC44D8007991DB /* AppInfoHeaderCellViewModel.swift in Sources */,
 				C43E157929DB73FF004F554E /* Constant.swift in Sources */,
+				C4277D7629DD82B6007462AC /* TodayCell.swift in Sources */,
 				C4E17A8E29CF2481009A82A0 /* AppsViewContoller.swift in Sources */,
 				C4CA8C0B29DCE00000837019 /* RatingsModel.swift in Sources */,
 				C44D69ED29DC0DD8007991DB /* AppInfoViewController.swift in Sources */,
