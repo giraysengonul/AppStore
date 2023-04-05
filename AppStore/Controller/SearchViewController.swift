@@ -64,6 +64,14 @@ extension SearchViewController{
         return cell
     }
 }
+ // MARK: - UICollectionViewDelegate
+extension SearchViewController{
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let id = String(self.searchResults[indexPath.row].trackId)
+        let controller = AppInfoViewController(id: id)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+}
  // MARK: - UICollectionViewDelegateFlowLayout
 extension SearchViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -79,5 +87,8 @@ extension SearchViewController: UISearchBarDelegate{
         SearchService.fetchData(searchtext: searchText) { results in
             self.searchResults = results
         }
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchResults = []
     }
 }

@@ -16,7 +16,8 @@ struct Result: Decodable {
     let trackName: String
     let screenshotUrls: [String]
     var averageUserRating: Float?
-    let formattedPrice: String
+    var formattedPrice: String?
     let description: String
-    let releaseNotes: String
+    var releaseNotes: String?
+    let trackId: Int
 }

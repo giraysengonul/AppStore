@@ -27,9 +27,18 @@ struct SearchCellViewModel {
         return URL(string: result.screenshotUrls[0])
     }
     var screenshot2: URL?{
-        return URL(string: result.screenshotUrls[1])
+        if result.screenshotUrls.count > 1{
+            return URL(string: result.screenshotUrls[1])
+        }else{
+            return URL(string: result.screenshotUrls[0])
+        }
+      
     }
     var screenshot3: URL?{
-        return URL(string: result.screenshotUrls[2])
+        if result.screenshotUrls.count > 2{
+            return URL(string: result.screenshotUrls[2])
+        }else{
+            return URL(string: result.screenshotUrls[0])
+        }
     }
 }
