@@ -134,17 +134,9 @@
 		C449F97F29D02BB200E08B2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4B5AC7729DEC10200894DBF /* Apps */,
 				C4277D7429DD82AB007462AC /* Today */,
 				C449F98029D02BBE00E08B2D /* SearchCell.swift */,
-				C48A106F29D98B5700A15F22 /* AppCell.swift */,
-				C48A107429D98DC700A15F22 /* AppCellDetailCell.swift */,
-				C4753D7829DA055D001BEFFA /* AppsHeaderView.swift */,
-				C4753D7C29DA06A0001BEFFA /* AppsHeaderViewCell.swift */,
-				C44D69EE29DC0E8D007991DB /* AppInfoHeaderCell.swift */,
-				C44D69F829DC5941007991DB /* ScreenshotCell.swift */,
-				C44D69FC29DC5B16007991DB /* ScreenshotDetailCell.swift */,
-				C4CA8C0029DCC42500837019 /* RatingsCell.swift */,
-				C4CA8C0429DCC5FD00837019 /* RatingsDetailCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +198,30 @@
 			path = Apps;
 			sourceTree = "<group>";
 		};
+		C4B5AC7729DEC10200894DBF /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				C4CA8C0429DCC5FD00837019 /* RatingsDetailCell.swift */,
+				C4CA8C0029DCC42500837019 /* RatingsCell.swift */,
+				C44D69FC29DC5B16007991DB /* ScreenshotDetailCell.swift */,
+				C44D69F829DC5941007991DB /* ScreenshotCell.swift */,
+				C44D69EE29DC0E8D007991DB /* AppInfoHeaderCell.swift */,
+				C4753D7C29DA06A0001BEFFA /* AppsHeaderViewCell.swift */,
+				C4753D7829DA055D001BEFFA /* AppsHeaderView.swift */,
+				C48A107429D98DC700A15F22 /* AppCellDetailCell.swift */,
+				C48A106F29D98B5700A15F22 /* AppCell.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		C4B5AC7829DEC12700894DBF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C4E17A8F29CF2490009A82A0 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		C4C824FF29CEDBBF002808D0 = {
 			isa = PBXGroup;
 			children = (
@@ -251,10 +267,10 @@
 		C4C8252229CEDC8F002808D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4B5AC7829DEC12700894DBF /* Search */,
 				C4277D7329DD8257007462AC /* Today */,
 				C48A107129D98C2E00A15F22 /* Apps */,
 				C4C8251F29CEDBE9002808D0 /* MainTabBarController.swift */,
-				C4E17A8F29CF2490009A82A0 /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

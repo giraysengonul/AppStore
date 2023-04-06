@@ -47,6 +47,7 @@ extension TodayDetailViewController{
         guard let today = self.today else { return }
         detailImageView.image = UIImage(named: today.imageName)
         self.todayDetailViewModel = TodayDetailViewModel(today: today)
+        tableView.reloadData()
     }
 }
  // MARK: - UITableViewDataSource
