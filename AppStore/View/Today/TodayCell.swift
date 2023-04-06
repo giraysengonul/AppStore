@@ -8,19 +8,30 @@
 import UIKit
 class TodayCell: UICollectionViewCell {
      // MARK: - Properties
+    var today: Today?{
+        didSet{
+            configure()
+        }
+    }
     private let detailImageView: UIImageView = {
         let imageView =  UIImageView()
         imageView.customMode()
-        imageView.image = UIImage(named: "game")
         imageView.layer.cornerRadius = 14
         return imageView
     }()
+    private let featureTitleLabel: UILabel = {
+       let label = UILabel()
+        label.textColor = .darkGray
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        return label
+    }()
     private let titleLabel: UILabel = {
        let label = UILabel()
-        label.text = "Title"
+        label.textColor = .darkGray
         label.font = UIFont.boldSystemFont(ofSize: 25)
         return label
     }()
+    private var labelStackView: UIStackView!
      // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,18 +50,28 @@ extension TodayCell{
         layer.cornerRadius = 14
         detailImageView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        labelStackView = UIStackView(arrangedSubviews: [featureTitleLabel,titleLabel])
+        labelStackView.axis = .vertical
+        labelStackView.spacing = 4
+        labelStackView.translatesAutoresizingMaskIntoConstraints = false
     }
     private func layout(){
         addSubview(detailImageView)
-        addSubview(titleLabel)
+        addSubview(labelStackView)
         NSLayoutConstraint.activate([
             detailImageView.topAnchor.constraint(equalTo: topAnchor),
             detailImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             detailImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             detailImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor,constant: 4),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            labelStackView.topAnchor.constraint(equalTo: topAnchor,constant: 8),
+            labelStackView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 8),
+            labelStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
+    }
+    private func configure(){
+        guard let today = self.today else { return }
+        self.featureTitleLabel.text = today.featuredTitle
+        self.titleLabel.text = today.headTitle
+        self.detailImageView.image = UIImage(named: today.imageName)
     }
 }

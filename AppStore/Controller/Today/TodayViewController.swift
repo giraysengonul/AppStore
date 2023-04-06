@@ -9,6 +9,7 @@ import UIKit
 private let reuseIdentifier = "TodayCell"
 class TodayViewController: UICollectionViewController {
      // MARK: - Properties
+    private let todayModelResult: [Today] = modelData
     private var startLocation: CGRect?
     private let todayDetailViewController = TodayDetailViewController()
      // MARK: - Lifecycle
@@ -34,10 +35,11 @@ extension TodayViewController{
  // MARK: - UICollectionViewDataSource
 extension TodayViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return self.todayModelResult.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TodayCell
+        cell.today = self.todayModelResult[indexPath.row]
         return cell
     }
 }
@@ -50,6 +52,7 @@ extension TodayViewController{
         } completion: { _ in
             self.todayDetailViewController.removeFromParent()
             self.todayDetailViewController.view.removeFromSuperview()
+         
         }
 
     }
@@ -60,6 +63,7 @@ extension TodayViewController{
         let item = collectionView.cellForItem(at: indexPath)
         self.startLocation = item?.superview?.convert(item?.frame ?? .zero, to: nil)
         todayDetailViewController.view.frame = startLocation ?? .zero
+        todayDetailViewController.today = self.todayModelResult[indexPath.row]
         self.todayDetailViewController.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTodayDetailViewController)))
         addChild(todayDetailViewController)
         view.addSubview(todayDetailViewController.view)

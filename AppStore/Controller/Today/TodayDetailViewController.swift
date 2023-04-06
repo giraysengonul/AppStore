@@ -9,10 +9,15 @@ import UIKit
 private let reuseIdentifier = "TableDetailViewCell"
 class TodayDetailViewController: UITableViewController {
      // MARK: - Properties
+    private var todayDetailViewModel: TodayDetailViewModel?
+    var today: Today?{
+        didSet{
+            configure()
+        }
+    }
     private let detailImageView: UIImageView = {
         let imageView =  UIImageView()
         imageView.customMode()
-        imageView.image = UIImage(named: "game")
         imageView.layer.cornerRadius = 14
         return imageView
     }()
@@ -35,8 +40,13 @@ extension TodayDetailViewController{
     private func setup(){
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(TodayDetailCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.contentInsetAdjustmentBehavior = .never
+    }
+    private func configure(){
+        guard let today = self.today else { return }
+        detailImageView.image = UIImage(named: today.imageName)
+        self.todayDetailViewModel = TodayDetailViewModel(today: today)
     }
 }
  // MARK: - UITableViewDataSource
@@ -45,9 +55,8 @@ extension TodayDetailViewController{
         return 1
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = "fmilmfidğfmdimfidsmfilsdfamidsmfisdmfilsdmfildsmfildsmfildsmfilmdsfilmsdifmdsifmsdfimdiflmdifmdimfidsmfisdmifidlsmfildsmfilsdmfidsmfimdsifmsdilmfildmfildmsilfmdlifildsmflismdfilsmdfilmsdlfimsdifmsdilmfisdmfildsmfilsdmflimdsflimsdlfmsdlmfsdlmfilfdsmfisdmfisdmifldmsifmdsilfmsdifm"
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! TodayDetailCell
+        cell.today = self.todayDetailViewModel
         return cell
     }
 }
